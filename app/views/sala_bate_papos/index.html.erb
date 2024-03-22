@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Sala bate papos</h1>
+
+<div id="sala_bate_papos">
+  <% @sala_bate_papos.each do |sala_bate_papo| %>
+    <%= render sala_bate_papo %>
+    <p>
+      <%= link_to "Show this sala bate papo", sala_bate_papo %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New sala bate papo", new_sala_bate_papo_path %>

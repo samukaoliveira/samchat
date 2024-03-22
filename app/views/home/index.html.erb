@@ -1,0 +1,21 @@
+<h1>Bem-vindo ao teste de websocket Sam Chat, <%= @current_user.nome unless @current_user.nil? %></h1>
+<h2><%= link_to "Sair", logout_path unless @current_user.nil? %></h1>
+
+<% if @current_user.blank? %>
+    <%= form_for Usuario.new, method: :post do |f| %>
+        <%= f.label :nome %>
+        <%= f.text_field :nome %>
+        <%= f.submit "Acessar" %>
+    <% end %>
+<% else %>
+    <%= form_for SalaBatePapo.new, method: :post do |f| %>
+        <%= f.label :topico %>
+        <%= f.text_field :topico %>
+        <%= f.submit "Criar" %>
+    <% end %>
+    <% @sala_bate_papos&.each do | sala | %>
+        <%= link_to sala.topic, sala %>
+    <% end %>
+
+<% end %>
+
